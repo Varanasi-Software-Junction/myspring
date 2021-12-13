@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-@ComponentScan(basePackages={"com.example.myspring"})
+
 public class MyspringApplication {
 
 	public static void main(String[] args) {
@@ -18,9 +18,14 @@ public class MyspringApplication {
 
 	@GetMapping("/hello")
 
-	public String sayHello(@RequestParam(value = "name", defaultValue = "Popat") String name,@RequestParam(value = "address", defaultValue = "Chiraigaon") String address) {
-		return String.format("Hello %s from %s", name,address);
+	public String sayHello(@RequestParam(value = "name", defaultValue = "Popat") String name, @RequestParam(value = "address", defaultValue = "Chiraigaon") String address) {
+		return String.format("Hello %s from %s", name, address);
+	}
 
+	@GetMapping("/bye")
+
+	public String bye(@RequestParam(value = "name", defaultValue = "Popat") String name, @RequestParam(value = "address", defaultValue = "Chiraigaon") String address) {
+		return String.format("Hello %s from %s", name, address);
 
 
 	}
