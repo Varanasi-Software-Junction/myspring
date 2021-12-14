@@ -1,6 +1,7 @@
 package com.example.myspring;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,15 @@ import org.springframework.stereotype.Controller;
 @SpringBootApplication
 @Controller
 public class DemoController {
+
+
+    @GetMapping("/hi")
+    public String hi(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+        model.addAttribute("name", name);
+        return "hi.html";
+    }
+
+
 
     @GetMapping("/demo")
 
